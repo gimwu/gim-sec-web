@@ -2,10 +2,9 @@
   <top></top>
   <headd></headd>
   <div class="block">
-    <span class="demonstration">Switch when indicator is clicked</span>
-    <el-carousel trigger="click" height="100px">
+    <el-carousel trigger="click" height="450px">
       <el-carousel-item v-for="item in bannerList" :key="item">
-        <el-image style="width: 100px; height: 100px" :src=item />
+        <el-image style="width: 1920px; height: 100%" :src=item />
       </el-carousel-item>
     </el-carousel>
   </div>
