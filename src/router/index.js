@@ -10,15 +10,20 @@ const router = createRouter(
             },
             {
                 path: '/index',
+                name: '首页',
+                meta: ['首页'],
                 component: () => import('@/view/index'),
             },
             {
-                path: '/top',
-                component: () => import('@/components/Top'),
+                path: '/goods-list',
+                name: "商品列表",
+                meta: ['商品列表'],
+                component: () => import('@/view/goods-list'),
             },
             {
-                path : '/head',
-                component: () => import('@/components/Head'),
+                path: '/goods-detail',
+                meta: ['商品详情'],
+                component: () => import('@/view/goods-detail'),
             }
         ]
     }
