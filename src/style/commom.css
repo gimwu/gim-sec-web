@@ -1,0 +1,14 @@
+body {
+    min-width: 1200px;
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: #000;
+    font-family: -apple-system,system-ui,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei;
+    margin-top: 0;
+}
+
+html {
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    text-size-adjust: none;
+}

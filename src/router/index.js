@@ -10,11 +10,15 @@ const router = createRouter(
             },
             {
                 path: '/index',
-                component: () => import('@/components/HelloWorld'),
+                component: () => import('@/view/index'),
             },
             {
                 path: '/top',
                 component: () => import('@/components/Top'),
+            },
+            {
+                path : '/head',
+                component: () => import('@/components/Head'),
             }
         ]
     }
