@@ -31,6 +31,13 @@ export default {
   font-size: 12px;
 }
 
+.top .con {
+  width: 1200px;
+  height: 36px;
+  display: flex;
+  margin: auto;
+}
+
 .top .con .right {
   display: flex;
 }

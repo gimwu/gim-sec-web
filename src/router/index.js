@@ -24,6 +24,26 @@ const router = createRouter(
                 path: '/goods-detail',
                 meta: ['商品详情'],
                 component: () => import('@/view/goods-detail'),
+            },
+            {
+                path: '/sec-list',
+                meta: ['秒杀列表'],
+                component: () => import('@/view/sec-list'),
+            },
+            {
+                path: '/sec-detail',
+                meta: ['秒杀商品'],
+                component: () => import('@/view/goods-detail'),
+            },
+            {
+                path: '/cart',
+                meta: ['购物车'],
+                component: () => import('@/view/cart'),
+            },
+            {
+                path: '/submit-order',
+                meta: ['提交订单'],
+                component: () => import('@/view/submit-order'),
             }
         ]
     }

@@ -17,6 +17,19 @@ export default {
 
 <style scoped>
 
+.head {
+  background: #fff;
+  width: 100%;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%);
+  height: 94px;
+  display: flex;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  padding-top: 20px;
+  box-sizing: border-box;
+}
+
+
 .head .menu .item {
   position: relative;
   display: block;
@@ -28,6 +41,7 @@ export default {
 
 .head .menu {
   display: flex;
+  margin-left: 100px;
 }
 
 .head .menu .item.item-on, .head .menu .item:hover {
