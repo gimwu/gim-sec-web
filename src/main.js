@@ -8,8 +8,8 @@ import {
     ElCarouselItem,
     ElIcon,
     ElImage,
-    ElImageViewer,
-    ElStep, ElSteps, ElTable, ElTableColumn
+    ElImageViewer, ElMenu, ElMenuItem,
+    ElStep, ElSteps, ElTable, ElTableColumn, ElTabPane, ElTabs
 } from "element-plus";
 import 'element-plus/dist/index.css'
 
@@ -30,5 +30,9 @@ app
     .use(ElTable)
     .use(ElTableColumn)
     .use(ElButton)
+    .use(ElMenu)
+    .use(ElMenuItem)
+    .use(ElTabs)
+    .use(ElTabPane)
 
 app.mount('#app')

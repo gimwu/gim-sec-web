@@ -4,7 +4,7 @@
       <div class="left"></div>
       <div class="right">
         <div class="item"><span data-route="index" class="item-a" @click="$router.push('/index')">商城首页</span></div>
-        <div class="item"><span data-route="index2" class="item-a" @click="$router.push('/index')">我的订单</span></div>
+        <div class="item"><span data-route="index2" class="item-a" @click="$router.push('/myOrder')">我的订单</span></div>
         <div class="item"><span data-route="index2" class="item-a">个人中心</span></div>
         <div class="item"><span data-route="index2" class="item-a">卖家中心</span></div>
         <div class="item"><span data-route="index2" class="item-a">购物车</span></div>

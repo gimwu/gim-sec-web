@@ -44,6 +44,11 @@ const router = createRouter(
                 path: '/submit-order',
                 meta: ['提交订单'],
                 component: () => import('@/view/submit-order'),
+            },
+            {
+                path: '/myOrder',
+                meta: ['我的订单'],
+                component: () => import('@/view/myOrder'),
             }
         ]
     }
