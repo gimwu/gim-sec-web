@@ -11,12 +11,7 @@
         </div>
         <div class="info">
           <div class="name-box">
-            <div class="name">Sulwhasoo 雪花秀 顺行洗面奶 柔和洁面泡沫层清洁洁面乳200ml</div>
-            <div class="des">
-              <div title="顺行洗面奶" class="brief">
-                顺行洗面奶
-              </div>
-            </div>
+            <div class="name">{{this.Info.Name}}</div>
           </div>
 
           <div class="price-box">
@@ -24,13 +19,13 @@
               <div class="con">
                 <div class="price">
                   ￥
-                  <span class="big">99</span>
+                  <span class="big">{{this.Info.Price}}</span>
                   .00
                 </div>
               </div>
               <span class="tit">剩余库存</span>
               <div class="con">
-                965
+                {{this.Info.Stock}}
               </div>
             </div>
           </div>
@@ -47,13 +42,13 @@
 
           <div class="btns group-btn">
             <a href="javascript:void(0)" class="alone-group"><span
-                class="group-price">￥99.00</span> <span
+                class="group-price">{{this.Info.Price}}</span> <span
                 class="group-text">单独购买</span></a> <a href="javascript:void(0)" class="add-cart add-cart-group"><span>加入购物车</span></a>
           </div>
         </div>
       </div>
       <div class="detail-down detail-comment">
-
+          {{this.Info.Content}}
       </div>
     </div>
   </div>
@@ -62,12 +57,47 @@
 <script>
 import Top from '../components/Top';
 import headd from '../components/Head';
+import api from "@/utils/request";
 
 export default {
   name: "goods-detail",
   components: {
     Top,
     headd
+  },
+  mounted() {
+    this.getInfo(this.$route.query.id)
+  },
+  methods: {
+    getInfo(id) {
+      api({
+        method: "GET",
+        url: "http://localhost:8081/api/v1/goods",
+        params: {
+          id: id,
+        }
+      }).then(info => {
+        this.Info = info.data.data;
+      });
+      console.log(this.Info)
+    }
+  },
+  data() {
+    return {
+      Info: {
+        ID: 0,
+        CreatedAt: "2022-05-03T21:14:33.824+08:00",
+        UpdatedAt: "2022-05-03T21:14:33.824+08:00",
+        DeletedAt: null,
+        Id: "154718797406666752",
+        Name: "Iphone 13 pro max",
+        Price: "8899",
+        Stock: 10,
+        Photo: "sec-1.jpeg",
+        Content: "realy? u realy dont know what is this?",
+        BelongUsernameId: "1",
+      },
+    }
   }
 }
 </script>

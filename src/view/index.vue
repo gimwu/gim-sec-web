@@ -76,7 +76,10 @@ export default {
       console.log("success")
     },
     goinGoods(id){
-      this.$router.push("goods-detail?id="+id);
+      this.$router.push({
+        path: "/goods-detail",
+        query: {id:id},
+      });
     }
   },
   data(){
