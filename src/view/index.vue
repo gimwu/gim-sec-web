@@ -11,15 +11,15 @@
         </div>
       </div>
       <div class="list-con">
-        <div class="item">
+        <div class="item" v-for="item in pageVO.list" :key="item" @click="goinGoods(item.Id)">
           <div class="goods-img">
             <img :src="require('@/static/sec-1.jpeg')" alt=""></div>
           <div class="goods-msg">
-            <div class="goods-name">ORIGINS 悦木之源 菌菇水200ml+CLINIQUE 倩碧无油黄油125ml</div>
+            <div class="goods-name">{{item.Name}}</div>
             <div class="goods-price">
               <div class="price">
                 ￥
-                <span class="big">39</span> <span class="small" data-v-dc4c5898="">.00</span></div>
+                <span class="big">{{item.Price}}</span> <span class="small" data-v-dc4c5898="">.00</span></div>
             </div>
           </div>
         </div>
@@ -54,13 +54,38 @@
 import Top from '../components/Top';
 import headd from '../components/Head';
 import banner from '../components/banner';
-
+import api from '../utils/request';
 export default {
   name: "index-view",
   components: {
     Top,
     headd,
     banner
+  },
+  mounted() {
+    this.getPage()
+  },
+  methods:{
+    getPage() {
+      api.get("http://localhost:8081/api/v1/goods/queryGoodsPage?pageNum=0&pageSize=10").
+      then(page => {
+        this.pageVO.count = page.data.data.count;
+        this.pageVO.list = page.data.data.list;
+        console.log(this.pageVO.list)
+      })
+      console.log("success")
+    },
+    goinGoods(id){
+      this.$router.push("goods-detail?id="+id);
+    }
+  },
+  data(){
+    return{
+      pageVO: {
+        list: [], // 返回的列表
+        count:0
+      },
+    }
   }
 }
 </script>

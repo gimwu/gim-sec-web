@@ -3,7 +3,7 @@ import App from './App.vue'
 import Router from './router/index'
 import {
     ElBreadcrumb,
-    ElBreadcrumbItem,
+    ElBreadcrumbItem, ElButton,
     ElCarousel,
     ElCarouselItem,
     ElIcon,
@@ -29,5 +29,6 @@ app
     .use(ElStep)
     .use(ElTable)
     .use(ElTableColumn)
+    .use(ElButton)
 
 app.mount('#app')
