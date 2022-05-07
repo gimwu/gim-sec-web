@@ -92,7 +92,11 @@ const router = createRouter(
                 ],
                 component:() => import('@/view/admin')
             },
-
+            {
+                path:'/admin-login',
+                meta:['管理员登录'],
+                component:()=>import('@/view/admin/login')
+            }
         ]
     }
 )

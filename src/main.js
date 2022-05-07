@@ -6,10 +6,10 @@ import {
     ElBreadcrumb,
     ElBreadcrumbItem, ElButton,
     ElCarousel,
-    ElCarouselItem, ElCol,
+    ElCarouselItem, ElCol, ElForm, ElFormItem,
     ElIcon,
     ElImage,
-    ElImageViewer, ElMenu, ElMenuItem,
+    ElImageViewer, ElInput, ElMenu, ElMenuItem,
     ElStep, ElSteps, ElSubMenu, ElTable, ElTableColumn, ElTabPane, ElTabs,
 } from "element-plus";
 import 'element-plus/dist/index.css'
@@ -38,6 +38,9 @@ app
     .use(ElAvatar)
     .use(ElCol)
     .use(ElSubMenu)
+    .use(ElForm)
+    .use(ElFormItem)
+    .use(ElInput)
 
 
 app.mount('#app')
