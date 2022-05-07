@@ -2,14 +2,15 @@ import {createApp} from 'vue'
 import App from './App.vue'
 import Router from './router/index'
 import {
+    ElAvatar,
     ElBreadcrumb,
     ElBreadcrumbItem, ElButton,
     ElCarousel,
-    ElCarouselItem,
+    ElCarouselItem, ElCol,
     ElIcon,
     ElImage,
     ElImageViewer, ElMenu, ElMenuItem,
-    ElStep, ElSteps, ElTable, ElTableColumn, ElTabPane, ElTabs
+    ElStep, ElSteps, ElSubMenu, ElTable, ElTableColumn, ElTabPane, ElTabs,
 } from "element-plus";
 import 'element-plus/dist/index.css'
 
@@ -34,5 +35,9 @@ app
     .use(ElMenuItem)
     .use(ElTabs)
     .use(ElTabPane)
+    .use(ElAvatar)
+    .use(ElCol)
+    .use(ElSubMenu)
+
 
 app.mount('#app')

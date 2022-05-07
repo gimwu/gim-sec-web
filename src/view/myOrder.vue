@@ -4,12 +4,7 @@
 
   <div class="user-center base">
     <div class="content flex-box">
-      <div class="side-nav side-nav-zh">
-        <div class="item">
-          <a href="javascript:void(0)" class="item-a active">我的订单</a>
-          <a href="javascript:void(0)" class="item-a active">个人中心</a>
-        </div>
-      </div>
+      <side-nav/>
       <div class="con-box uc-order">
         <div class="uc-nav">
           <el-tabs v-model="activeName" class="nav-box" @tab-click="handleClick">
@@ -50,12 +45,14 @@
 <script>
 import Top from '../components/Top';
 import headd from '../components/Head';
+import sideNav from '../components/SideNav';
 
 export default {
   name: "myOrder",
   components: {
     Top,
     headd,
+    sideNav
   }
 }
 </script>

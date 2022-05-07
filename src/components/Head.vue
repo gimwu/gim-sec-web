@@ -2,9 +2,8 @@
   <div class="head">
     <div class="menu" data-v-b760fbc6="">
       <a href="/#/index" aria-current="page" class="item item-on nuxt-link-exact-active nuxt-link-active">首页</a>
-      <a href="/list?st=0" class="item">商品列表</a>
-      <a href="/list?st=1" class="item">新品推荐</a>
-      <a href="/flash-sale" class="item" data-v-b760fbc6="">秒杀专场</a>
+      <a href="/#/goods-list" class="item">商品列表</a>
+      <a href="/#/goods-list" class="item">秒杀专场</a>
     </div>
   </div>
 </template>

@@ -46,10 +46,53 @@ const router = createRouter(
                 component: () => import('@/view/submit-order'),
             },
             {
-                path: '/myOrder',
+                path: '/my-order',
                 meta: ['我的订单'],
                 component: () => import('@/view/myOrder'),
-            }
+            },
+            {
+                path: '/user-center',
+                meta: ['个人中心'],
+                component: () => import('@/view/user-center'),
+            },
+            {
+                path:'/admin',
+                meta:['后台管理系统'],
+                children:[
+                    {
+                        path:'/user-list',
+                        meta:['用户列表'],
+                        component:()=>import('@/view/admin/userList')
+                    },
+                    {
+                        path:'/admin-goods-list',
+                        meta:['商品列表'],
+                        component: () => import('@/view/admin/adminGoodsList'),
+                    },
+                    {
+                        path:'/sec-goods-list',
+                        meta:['秒杀商品列表'],
+                        component: () => import('@/view/admin/secGoodsList'),
+                    },
+                    {
+                        path:'/order-list',
+                        meta:['普通订单'],
+                        component: () => import('@/view/admin/orderList'),
+                    },
+                    {
+                        path:'/sec-order-list',
+                        meta:['秒杀商品订单'],
+                        component:()=>import('@/view/admin/secOrderList')
+                    },
+                    {
+                        path:'/admin-list',
+                        meta:['管理员列表'],
+                        component:()=>import('@/view/admin/adminList')
+                    }
+                ],
+                component:() => import('@/view/admin')
+            },
+
         ]
     }
 )

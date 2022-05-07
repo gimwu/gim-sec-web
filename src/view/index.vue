@@ -67,7 +67,7 @@ export default {
   },
   methods:{
     getPage() {
-      api.get("http://localhost:8081/api/v1/goods/queryGoodsPage?pageNum=0&pageSize=10").
+      api.get("http://localhost:8083/api/v1/goods/queryGoodsPage?pageNum=0&pageSize=10").
       then(page => {
         this.pageVO.count = page.data.data.count;
         this.pageVO.list = page.data.data.list;
