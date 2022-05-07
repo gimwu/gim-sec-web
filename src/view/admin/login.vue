@@ -51,7 +51,7 @@ export default {
           Password: this.loginForm.Password
         }
       }).then(info => {
-        api.defaults.headers.Authorization = info.data.msg[0]
+        api.defaults.headers.Authorization = "Bearer "+info.data.msg[0]
         this.$router.push("/admin")
       });
       console.log(this.Info)
