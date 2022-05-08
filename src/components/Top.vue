@@ -6,8 +6,8 @@
         <div class="item"><span data-route="index" class="item-a" @click="$router.push('/index')">商城首页</span></div>
         <div class="item"><span data-route="index2" class="item-a" @click="$router.push('/my-order')">我的订单</span></div>
         <div class="item"><span data-route="index2" class="item-a" @click="$router.push('/user-center')">个人中心</span></div>
-        <div class="item"><span data-route="index2" class="item-a">卖家中心</span></div>
-        <div class="item"><span data-route="index2" class="item-a">购物车</span></div>
+        <div class="item"><span data-route="index2" class="item-a" @click="$router.push('/admin-login')">卖家中心</span></div>
+        <div class="item"><span data-route="index2" class="item-a" @click="$router.push('/cart')">购物车</span></div>
       </div>
     </div>
   </div>
