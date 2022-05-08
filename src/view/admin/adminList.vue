@@ -7,7 +7,12 @@
         <el-table-column prop="Nickname" label="昵称"/>
         <el-table-column prop="Avatar" label="头像"/>
         <el-table-column prop="LastLoginTime" label="最后一次登录时间"  width="250px"/>
-        <el-table-column prop="do" label="操作"/>
+        <el-table-column prop="do" label="操作" width="120px">
+          <div class="button">
+            <el-button type="primary">编辑用户</el-button>
+            <el-button type="danger" style="margin-left: 0">删除用户</el-button>
+          </div>
+        </el-table-column>
       </el-table>
     </div>
   </div>

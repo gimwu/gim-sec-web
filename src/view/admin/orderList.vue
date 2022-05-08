@@ -6,7 +6,6 @@
         <el-table-column prop="BelongUsername" label="所属用户"/>
         <el-table-column prop="Price" label="总价"/>
         <el-table-column prop="OrderStatus" label="状态"/>
-        <el-table-column prop="do" label="操作"/>
       </el-table>
     </div>
   </div>

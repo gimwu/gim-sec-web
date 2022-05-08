@@ -7,8 +7,14 @@
         <el-table-column prop="telephone" label="电话号码" width="120px"/>
         <el-table-column prop="userType" label="用户类型"/>
         <el-table-column prop="LastTimeLogin" label="最后一次登录时间" width="230px"/>
-        <el-table-column prop="do" label="操作"/>
+        <el-table-column prop="do" label="操作" width="120px">
+          <div class="button">
+            <el-button type="primary">编辑用户</el-button>
+            <el-button type="danger" style="margin-left: 0">删除用户</el-button>
+          </div>
+        </el-table-column>
       </el-table>
+      <el-button type="success">新增用户</el-button>
     </div>
   </div>
 </template>
@@ -50,5 +56,9 @@ export default {
 </script>
 
 <style scoped>
+
+.button {
+  margin-left: 0;
+}
 
 </style>

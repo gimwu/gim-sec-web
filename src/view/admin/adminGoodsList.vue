@@ -9,7 +9,12 @@
         <el-table-column prop="Photo" label="图片"/>
         <el-table-column prop="Content" label="描述"/>
         <el-table-column prop="BelongUsername" label="所属用户"/>
-        <el-table-column prop="do" label="操作"/>
+        <el-table-column prop="do" label="操作" width="120px">
+          <div class="button">
+            <el-button type="primary">编辑用户</el-button>
+            <el-button type="danger" style="margin-left: 0">删除用户</el-button>
+          </div>
+        </el-table-column>
       </el-table>
     </div>
   </div>
