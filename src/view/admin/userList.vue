@@ -3,7 +3,7 @@
     <div class="user-table">
       <el-table :data="userVo.list" class="box">
         <el-table-column prop="Id" label="ID" width="170px"/>
-        <el-table-column prop="name" label="名称"/>
+        <el-table-column prop="name" label="名称" width="100px"/>
         <el-table-column prop="telephone" label="电话号码" width="120px"/>
         <el-table-column prop="userType" label="用户类型"/>
         <el-table-column prop="LastTimeLogin" label="最后一次登录时间" width="230px"/>
