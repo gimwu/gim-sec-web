@@ -6,7 +6,7 @@ import {
     ElBreadcrumb,
     ElBreadcrumbItem, ElButton,
     ElCarousel,
-    ElCarouselItem, ElCol, ElForm, ElFormItem,
+    ElCarouselItem, ElCol, ElDialog, ElForm, ElFormItem,
     ElIcon,
     ElImage,
     ElImageViewer, ElInput, ElMenu, ElMenuItem,
@@ -41,6 +41,7 @@ app
     .use(ElForm)
     .use(ElFormItem)
     .use(ElInput)
+    .use(ElDialog)
 
 
 app.mount('#app')

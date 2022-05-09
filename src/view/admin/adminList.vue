@@ -9,11 +9,12 @@
         <el-table-column prop="LastLoginTime" label="最后一次登录时间"  width="250px"/>
         <el-table-column prop="do" label="操作" width="120px">
           <div class="button">
-            <el-button type="primary">编辑用户</el-button>
-            <el-button type="danger" style="margin-left: 0">删除用户</el-button>
+            <el-button type="primary">编辑管理员</el-button>
+            <el-button type="danger" style="margin-left: 0">删除管理员</el-button>
           </div>
         </el-table-column>
       </el-table>
+      <el-button type="success">新增管理员</el-button>
     </div>
   </div>
 </template>

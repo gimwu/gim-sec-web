@@ -13,11 +13,12 @@
         <el-table-column prop="secKillEnd" label="结束时间"/>
         <el-table-column prop="do" label="操作" width="120px">
           <div class="button">
-            <el-button type="primary">编辑用户</el-button>
-            <el-button type="danger" style="margin-left: 0">删除用户</el-button>
+            <el-button type="primary">编辑秒杀商品</el-button>
+            <el-button type="danger" style="margin-left: 0">删除秒杀商品</el-button>
           </div>
         </el-table-column>
       </el-table>
+      <el-button type="success">新增秒杀商品</el-button>
     </div>
   </div>
 </template>
