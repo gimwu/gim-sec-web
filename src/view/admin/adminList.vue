@@ -96,10 +96,13 @@ export default {
         method: "POST",
         url: "http://localhost:8071/api/v1/admin",
         data: this.Vo
-      }).then(
-          successInsert(),
-          this.createAdminVisible = false
-      ).catch(
+      }).then( data =>{
+            successInsert();
+            this.createAdminVisible = false;
+        if (data.data.code == 200) {
+          this.getAdminList()
+        }
+      }).catch(
           error => {
             errorInsert("我试试")
             errorInsert(error.data.msg)
@@ -107,7 +110,7 @@ export default {
       );
     },
     openEdit(row) {
-      this.editGoodsVisible = true
+      this.editAdminVisible = true
       console.log(row)
       console.log(this.adminList.list[row])
       this.Vo = this.adminList.list[row]
