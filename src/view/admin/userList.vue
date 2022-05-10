@@ -9,10 +9,10 @@
         <el-table-column prop="LastTimeLogin" label="最后一次登录时间" width="230px"/>
         <el-table-column prop="do" label="操作" width="120px">
           <template v-slot="scope">
-          <div class="button">
-            <el-button type="primary" @click="openEdit(scope.$index)">编辑用户</el-button>
-            <el-button type="danger" style="margin-left: 0" @click="deleteUser(scope.$index)">删除用户</el-button>
-          </div>
+            <div class="button">
+              <el-button type="primary" @click="openEdit(scope.$index)">编辑用户</el-button>
+              <el-button type="danger" style="margin-left: 0" @click="deleteUser(scope.$index)">删除用户</el-button>
+            </div>
           </template>
         </el-table-column>
       </el-table>
@@ -96,13 +96,13 @@ export default {
         method: "GET",
         url: "http://localhost:8080/api/v1/user/queryUserPage",
         params: {
-          pageNum:0,
-          pageSize:15
+          pageNum: 0,
+          pageSize: 15
         },
-        data:{}
+        data: {}
       }).then(info => {
-        this.userVo.count=info.data.data.count
-        this.userVo.list=info.data.data.list
+        this.userVo.count = info.data.data.count
+        this.userVo.list = info.data.data.list
       });
     },
     createUser() {
@@ -146,26 +146,26 @@ export default {
           id: this.userVo.list[row].Id
         }
       }).then(
-          data =>{
-            if (data.data.code ==200){
+          data => {
+            if (data.data.code == 200) {
               this.getUserList()
             }
           }
       )
     },
   },
-  data(){
-    return{
-      userVo:{
-        count:0,
-        list:[]
+  data() {
+    return {
+      userVo: {
+        count: 0,
+        list: []
       },
       createUserVisible,
       editUserVisible,
-      Vo:{
+      Vo: {
         Name: "",
         Telephone: "",
-        Password:"",
+        Password: "",
         UserType: "",
       }
     }
