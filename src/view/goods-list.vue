@@ -5,10 +5,6 @@
   <div class="goods-sort">
     <div class="sort-con sorts">
       <div class="name">排序：</div>
-      <!--      <div class="group"><span class="item active">默认</span>-->
-      <!--        <span class="item">销量</span>-->
-      <!--        <span class="item">价格</span>-->
-      <!--      </div>-->
       <div>
         <el-radio-group class="group" size="large" v-model="radio" @change="getPage">
           <el-radio-button class="item" label="created_at">默认</el-radio-button>

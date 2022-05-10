@@ -1,38 +1,27 @@
 <template>
   <top/>
   <headd/>
-  <div class="goods-list">
-    <div class="list-con">
-      <div class="item sell-out">
-        <div class="goods-img">
-          <img data-v-e0a087e4="" src="https://img.mall4j.com/2022/02/ebbc902c666645c78f371bbdba5cf82a.jpg" alt="">
-        </div>
-        <div class="time-box">
-          <div class="text" style="text-align: center;">
-            距离结束还剩
-          </div>
-          <div class="time"><span class="time-item">35</span> <span
-              class="time-text">天</span> <span class="time-item">02</span> <span
-              class="time-text">:</span> <span class="time-item">11</span> <span
-              class="time-text">:</span> <span class="time-item">50</span></div>
-        </div>
-        <div class="goods-name"></div>
-        <div class="rest-number">
-          <div class="number-box">
-            <div class="percent" style="width: 0%;"></div>
-          </div>
-          <div class="number-text">
-            已售
-            <span class="number">0%</span>
-          </div>
-        </div>
+  <div class="goods-sort">
+    <div class="sort-con sorts">
+      <div class="name">排序：</div>
+      <div>
+        <el-radio-group class="group" size="large" v-model="radio" @change="getPage">
+          <el-radio-button class="item" label="created_at">默认</el-radio-button>
+          <el-radio-button class="item" label="price">价格</el-radio-button>
+        </el-radio-group>
+      </div>
+    </div>
+  </div>
+  <div class="list-con">
+    <div class="item" v-for="item in pageVO.list" :key="item" @click="goinGoods(item.Id)">
+      <div class="goods-img">
+        <img :src="require('@/static/sec-1.jpeg')" alt=""></div>
+      <div class="goods-msg">
+        <div class="goods-name">{{ item.Name }}</div>
         <div class="goods-price">
           <div class="price">
             ￥
-            <span class="big">39</span>
-            .00
-          </div>
-          <div class="old-price">￥199.00</div>
+            <span class="big">{{ item.Price }}</span> <span class="small" data-v-dc4c5898="">.00</span></div>
         </div>
       </div>
     </div>
@@ -42,73 +31,89 @@
 <script>
 import Top from '../components/Top';
 import headd from '../components/Head';
+import api from "@/utils/request";
 
 export default {
   name: "sec-list",
   components: {
     Top,
     headd
+  },
+  mounted() {
+    this.getPage()
+  },
+  methods: {
+    getPage() {
+      api({
+        method: "GET",
+        url: "http://localhost:8081/api/v1/secGoods/querySecGoodsPage",
+        params: {
+          pageNum: 0,
+          pageSize: 10,
+          order: this.radio,
+        }
+      }).then(page => {
+        this.pageVO.count = page.data.data.count;
+        this.pageVO.list = page.data.data.list;
+      })
+    },
+    goinGoods(id){
+      this.$router.push({
+        path: "/sec-detail",
+        query: {id:id},
+      });
+    },
+  },
+  data() {
+    return {
+      pageVO: {
+        list: [], // 返回的列表
+        count: 0,
+      },
+      radio: "",
+    }
   }
 }
 </script>
 
 <style scoped>
 
-.goods-list {
-  margin-top: 10px;
-  padding-bottom: 0;
+@import '../style/commom.css';
+
+.goods-sort {
+  background: #fff;
+  padding: 0 20px;
+  margin-bottom: 20px;
 }
 
-.goods-list .list-con {
+.goods-sort .sort-con {
   display: flex;
-  flex-wrap: wrap;
+  padding: 20px 0 0 10px;
+  border-bottom: 1px dashed #ddd;
 }
 
-.goods-list .list-con .item {
-  position: relative;
-  width: 285px;
-  margin-top: 20px;
+.goods-sort .sort-con .name {
+  color: #999;
   margin-right: 20px;
+}
+
+.goods-sort .sort-con .group {
+  flex: 1;
+  margin-bottom: 4px;
+}
+
+.list .goods-sort .sort-con .group .item:hover {
+  color: #e1251b;
+}
+
+.goods-sort .sort-con .group .item {
+  display: inline-block;
   transition: all .2s;
+  -webkit-transition: all .2s;
   cursor: pointer;
 }
 
-.goods-list .list-con .item .goods-img {
-  width: 285px;
-  height: 285px;
-  line-height: 285px;
-  text-align: center;
-  font-size: 0;
-}
-
-.goods-list .list-con .item .goods-img img {
-  max-width: 80%;
-  max-height: 80%;
-  vertical-align: middle;
-  -o-object-fit: scale-down;
-  object-fit: scale-down;
-}
-
-.goods-list .list-con .item .time-box[data-v-e0a087e4] {
-  background: #f9f9f9;
-  display: flex;
-  align-items: center;
-  padding: 0 10px;
-  position: absolute;
-  left: 0;
-  top: 240px;
-  height: 45px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.goods-list .list-con .item .time-box .text{
-  margin-right: 10px;
-}
-
-.goods-list .list-con .item .time-box .time{
-  display: flex;
-  align-items: center;
-  font-size: 14px;
+.goods-sort .sort-con:last-child {
+  border: 0;
 }
 </style>

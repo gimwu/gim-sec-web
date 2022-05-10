@@ -33,7 +33,7 @@ const router = createRouter(
             {
                 path: '/sec-detail',
                 meta: ['秒杀商品'],
-                component: () => import('@/view/goods-detail'),
+                component: () => import('@/view/sec-detail'),
             },
             {
                 path: '/cart',
@@ -96,6 +96,11 @@ const router = createRouter(
                 path:'/admin-login',
                 meta:['管理员登录'],
                 component:()=>import('@/view/admin/login')
+            },
+            {
+                path: '/login',
+                meta: ['登录界面'],
+                component: () => import('@/view/login'),
             }
         ]
     }
