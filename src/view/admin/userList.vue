@@ -23,16 +23,16 @@
   <el-dialog v-model="createUserVisible" title="新增用户" width="30%">
     <el-form :model="Vo" :inline="true" :label-position='right'>
       <el-form-item label="用户名称">
-        <el-input v-model="Vo.Name"/>
+        <el-input v-model="Vo.name"/>
       </el-form-item>
       <el-form-item label="电话号码">
-        <el-input v-model="Vo.Telephone"/>
+        <el-input v-model="Vo.telephone"/>
       </el-form-item>
       <el-form-item label="登录密码">
-        <el-input v-model="Vo.Password"/>
+        <el-input v-model="Vo.password"/>
       </el-form-item>
       <el-form-item label="用户类型">
-        <el-input v-model="Vo.UserType"/>
+        <el-input v-model="Vo.userType"/>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="createUser">Create</el-button>
@@ -44,16 +44,16 @@
   <el-dialog v-model="editUserVisible" title="编辑用户" width="30%">
     <el-form :model="Vo" :inline="true" :label-position='right'>
       <el-form-item label="用户名称">
-        <el-input v-model="Vo.Name"/>
+        <el-input v-model="Vo.name"/>
       </el-form-item>
       <el-form-item label="电话号码">
-        <el-input v-model="Vo.Telephone"/>
+        <el-input v-model="Vo.telephone"/>
       </el-form-item>
       <el-form-item label="登录密码">
-        <el-input v-model="Vo.Password"/>
+        <el-input v-model="Vo.password"/>
       </el-form-item>
       <el-form-item label="用户类型">
-        <el-input v-model="Vo.UserType"/>
+        <el-input v-model="Vo.userType"/>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="editUser">Edit</el-button>
@@ -121,7 +121,7 @@ export default {
       );
     },
     openEdit(row) {
-      this.editGoodsVisible = true
+      this.editUserVisible = true
       this.Vo = this.userVo.list[row]
     },
     editUser() {
@@ -163,10 +163,10 @@ export default {
       createUserVisible,
       editUserVisible,
       Vo: {
-        Name: "",
-        Telephone: "",
-        Password: "",
-        UserType: "",
+        name: "",
+        telephone: "",
+        password: "",
+        userType: "",
       }
     }
   }
