@@ -20,7 +20,7 @@
           </template>
         </el-table-column>
       </el-table>
-      <el-button type="success"  @click="createSecGoodsVisible = true">新增秒杀商品</el-button>
+      <el-button type="success" @click="createSecGoodsVisible = true">新增秒杀商品</el-button>
     </div>
   </div>
 
@@ -59,17 +59,29 @@
 
   <el-dialog v-model="editSecGoodsVisible" title="编辑用户" width="30%">
     <el-form :model="Vo" :inline="true" :label-position='right'>
-      <el-form-item label="用户名称">
+      <el-form-item label="商品名称">
         <el-input v-model="Vo.Name"/>
       </el-form-item>
-      <el-form-item label="电话号码">
-        <el-input v-model="Vo.Telephone"/>
+      <el-form-item label="价格">
+        <el-input v-model="Vo.Price"/>
       </el-form-item>
-      <el-form-item label="登录密码">
-        <el-input v-model="Vo.Password"/>
+      <el-form-item label="库存">
+        <el-input v-model="Vo.Stock"/>
       </el-form-item>
-      <el-form-item label="用户类型">
-        <el-input v-model="Vo.UserType"/>
+      <el-form-item label="图片">
+        <el-input v-model="Vo.Photo"/>
+      </el-form-item>
+      <el-form-item label="描述">
+        <el-input v-model="Vo.Content" type="textarea"/>
+      </el-form-item>
+      <el-form-item label="所属用户">
+        <el-input v-model="Vo.BelongUsername"/>
+      </el-form-item>
+      <el-form-item label="秒杀开始时间">
+        <el-input v-model="Vo.secKillStart"/>
+      </el-form-item>
+      <el-form-item label="秒杀结束时间">
+        <el-input v-model="Vo.secKillEnd"/>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="editSecGoods">Edit</el-button>
@@ -127,9 +139,13 @@ export default {
         method: "POST",
         url: "http://localhost:8081/api/v1/secGoods",
         data: this.Vo
-      }).then(
-          successInsert(),
-          this.createUserVisible = false
+      }).then(data => {
+            successInsert();
+            this.createSecGoodsVisible = false;
+            if (data.data.code == 200) {
+              this.getSecOrderList()
+            }
+          }
       ).catch(
           error => {
             errorInsert("我试试")
@@ -177,8 +193,8 @@ export default {
         count: 0,
         list: []
       },
-      Vo:{
-        Id:"",
+      Vo: {
+        Id: "",
         Name: "",
         Price: "",
         Stock: "",
