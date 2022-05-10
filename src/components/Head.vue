@@ -1,11 +1,11 @@
 <template>
   <div class="head">
-    <div class="menu" data-v-b760fbc6="">
-      <a href="/#/index" aria-current="page" class="item item-on nuxt-link-exact-active nuxt-link-active">首页</a>
-      <a href="/#/goods-list" class="item">商品列表</a>
-      <a href="/#/goods-list" class="item">秒杀专场</a>
+      <el-menu class="menu" router :default-active="activeIndex" >
+        <el-menu-item index="/index">首页</el-menu-item>
+        <el-menu-item index="/goods-list">商品列表</el-menu-item>
+        <el-menu-item index="/sec-list">秒杀专场</el-menu-item>
+      </el-menu>
     </div>
-  </div>
 </template>
 
 <script>
@@ -41,10 +41,6 @@ export default {
 .head .menu {
   display: flex;
   margin-left: 100px;
-}
-
-.head .menu .item.item-on, .head .menu .item:hover {
-  color: #e1251b;
 }
 
 a, a:hover {

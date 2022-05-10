@@ -106,8 +106,13 @@ export default {
         url: "http://localhost:8083/api/v1/goods",
         data: this.Vo
       }).then(
-          successInsert(),
-          this.createGoodsVisible = false
+          data =>{
+            if (data.data.code ==200){
+              successInsert()
+              this.createGoodsVisible = false;
+              this.getGoodsList();
+            }
+          }
       ).catch(
           error => {
             errorInsert("我试试")

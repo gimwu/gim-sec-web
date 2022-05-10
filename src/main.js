@@ -9,7 +9,7 @@ import {
     ElCarouselItem, ElCol, ElDialog, ElForm, ElFormItem,
     ElIcon,
     ElImage,
-    ElImageViewer, ElInput, ElMenu, ElMenuItem,
+    ElImageViewer, ElInput, ElMenu, ElMenuItem, ElRadio, ElRadioButton, ElRadioGroup,
     ElStep, ElSteps, ElSubMenu, ElTable, ElTableColumn, ElTabPane, ElTabs,
 } from "element-plus";
 import 'element-plus/dist/index.css'
@@ -42,6 +42,8 @@ app
     .use(ElFormItem)
     .use(ElInput)
     .use(ElDialog)
-
+    .use(ElRadioGroup)
+    .use(ElRadio)
+    .use(ElRadioButton)
 
 app.mount('#app')

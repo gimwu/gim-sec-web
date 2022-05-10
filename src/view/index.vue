@@ -33,15 +33,15 @@
         </div>
       </div>
       <div class="list-con">
-        <div class="item">
+        <div class="item" v-for="item in goodsVo.list" :key="item" @click="goinGoods(item.Id)">
           <div class="goods-img">
             <img :src="require('@/static/sec-1.jpeg')" alt=""></div>
           <div class="goods-msg">
-            <div class="goods-name">ORIGINS 悦木之源 菌菇水200ml+CLINIQUE 倩碧无油黄油125ml</div>
+            <div class="goods-name">{{item.Name}}</div>
             <div class="goods-price">
               <div class="price">
                 ￥
-                <span class="big">39</span> <span class="small" data-v-dc4c5898="">.00</span></div>
+                <span class="big">{{item.Price}}</span> <span class="small" data-v-dc4c5898="">.00</span></div>
             </div>
           </div>
         </div>
@@ -64,10 +64,11 @@ export default {
   },
   mounted() {
     this.getPage()
+    this.getGoodsList()
   },
   methods:{
     getPage() {
-      api.get("http://localhost:8083/api/v1/goods/queryGoodsPage?pageNum=0&pageSize=10").
+      api.get("http://localhost:8081/api/v1/secGoods/querySecGoodsPage?pageNum=1&pageSize=15").
       then(page => {
         this.pageVO.count = page.data.data.count;
         this.pageVO.list = page.data.data.list;
@@ -80,7 +81,15 @@ export default {
         path: "/goods-detail",
         query: {id:id},
       });
-    }
+    },
+    getGoodsList() {
+      api.get("http://localhost:8083/api/v1/goods/queryGoodsPage?pageNum=0&pageSize=10").
+      then(page => {
+        this.goodsVo.count = page.data.data.count;
+        this.goodsVo.list = page.data.data.list;
+      })
+      console.log("success")
+    },
   },
   data(){
     return{
@@ -88,6 +97,10 @@ export default {
         list: [], // 返回的列表
         count:0
       },
+      goodsVo:{
+        list: [],
+        count: 0,
+      }
     }
   }
 }

@@ -1,14 +1,13 @@
 <template>
   <div class="top">
     <div class="con">
-      <div class="left"></div>
-      <div class="right">
-        <div class="item"><span data-route="index" class="item-a" @click="$router.push('/index')">商城首页</span></div>
-        <div class="item"><span data-route="index2" class="item-a" @click="$router.push('/my-order')">我的订单</span></div>
-        <div class="item"><span data-route="index2" class="item-a" @click="$router.push('/user-center')">个人中心</span></div>
-        <div class="item"><span data-route="index2" class="item-a" @click="$router.push('/admin-login')">卖家中心</span></div>
-        <div class="item"><span data-route="index2" class="item-a" @click="$router.push('/cart')">购物车</span></div>
-      </div>
+      <el-menu class="right" router :default-active="activeIndex" >
+        <el-menu-item class="item-a" index="/index">商城首页</el-menu-item>
+        <el-menu-item class="item-a" index="/my-order">我的订单</el-menu-item>
+        <el-menu-item class="item-a" index="/user-center">个人中心</el-menu-item>
+        <el-menu-item class="item-a" index="/admin-login">卖家中心</el-menu-item>
+        <el-menu-item class="item-a" index="/cart">购物车</el-menu-item>
+      </el-menu>
     </div>
   </div>
 </template>
@@ -42,11 +41,7 @@ export default {
   display: flex;
 }
 
-.top .con .right .item {
-  position: relative;
-}
-
-.top .con .right .item .item-a, .top .con .right .item .item-b {
+.top .con .right .item-a{
   padding: 0 10px 0 11px;
   position: relative;
   z-index: 90;
