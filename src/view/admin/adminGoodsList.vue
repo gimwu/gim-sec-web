@@ -10,7 +10,6 @@
         <el-table-column prop="Content" label="描述"/>
         <el-table-column prop="BelongUsername" label="所属用户"/>
         <el-table-column prop="do" label="操作" width="120px">
-
           <template v-slot="scope">
             <div class="button">
               <el-button type="primary" @click="openEdit(scope.$index)">编辑商品</el-button>
