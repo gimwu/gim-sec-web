@@ -72,7 +72,7 @@ export default {
     getInfo(id) {
       api({
         method: "GET",
-        url: "http://localhost:8081/api/v1/goods",
+        url: "http://localhost:8083/api/v1/goods",
         params: {
           id: id,
         }

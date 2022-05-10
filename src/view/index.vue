@@ -11,7 +11,7 @@
         </div>
       </div>
       <div class="list-con">
-        <div class="item" v-for="item in pageVO.list" :key="item" @click="goinGoods(item.Id)">
+        <div class="item" v-for="item in pageVO.list" :key="item" @click="goinSecGoods(item.Id)">
           <div class="goods-img">
             <img :src="require('@/static/sec-1.jpeg')" alt=""></div>
           <div class="goods-msg">
@@ -75,6 +75,12 @@ export default {
         console.log(this.pageVO.list)
       })
       console.log("success")
+    },
+    goinSecGoods(id) {
+      this.$router.push({
+        path: "/sec-detail",
+        query:{id: id}
+      })
     },
     goinGoods(id){
       this.$router.push({

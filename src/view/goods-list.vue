@@ -63,7 +63,13 @@ export default {
         this.pageVO.count = page.data.data.count;
         this.pageVO.list = page.data.data.list;
       })
-    }
+    },
+    goinGoods(id){
+      this.$router.push({
+        path: "/goods-detail",
+        query: {id:id},
+      });
+    },
   },
   data() {
     return {
