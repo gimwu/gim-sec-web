@@ -32,7 +32,6 @@
 
           <div class="btns group-btn">
             <el-button class="alone-group" @click="secKill(this.Info.id)" color="#e1251b" :dark="isDark" :disabled="Date.parse(new Date())/1000 < this.Info.secKillStart || Date.parse(new Date())/1000>this.Info.secKillEnd">极速秒杀</el-button>
-            <el-button color="#626aef" :dark="isDark" plain>加入购物车</el-button>
           </div>
         </div>
       </div>

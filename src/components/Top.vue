@@ -4,7 +4,6 @@
       <el-menu class="right" router :default-active="activeIndex" >
         <el-menu-item class="item-a" index="/index">商城首页</el-menu-item>
         <el-menu-item class="item-a" index="/my-order">我的订单</el-menu-item>
-        <el-menu-item class="item-a" index="/user-center">个人中心</el-menu-item>
         <el-menu-item class="item-a" index="/admin-login">卖家中心</el-menu-item>
         <el-menu-item class="item-a" index="/cart">购物车</el-menu-item>
       </el-menu>
