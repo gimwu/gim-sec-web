@@ -43,12 +43,12 @@ const router = createRouter(
             {
                 path: '/submit-order',
                 meta: ['提交订单'],
-                component: () => import('@/view/submit-order'),
+                component: () => import('@/view/payment/submit-order'),
             },
             {
                 path: '/payment',
                 meta: ['订单支付'],
-                component: () => import('@/view/payment'),
+                component: () => import('@/view/payment/payment'),
             },
             {
                 path: '/my-order',

@@ -50,8 +50,8 @@
 </template>
 
 <script>
-import Top from '../components/Top';
-import headd from '../components/Head';
+import Top from '../../components/Top';
+import headd from '../../components/Head';
 import StepBox from "@/components/StepBox";
 import api from "@/utils/request";
 

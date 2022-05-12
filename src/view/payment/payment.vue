@@ -30,11 +30,11 @@
 </template>
 
 <script>
-import Top from '../components/Top';
-import headd from '../components/Head';
+import Top from '../../components/Top';
+import headd from '../../components/Head';
 import StepBox from "@/components/StepBox";
 import check from "@element-plus/icons-vue/dist/es/check.mjs";
-import api from "../utils/request"
+import api from "../../utils/request"
 
 export default {
   name: "view-payment",
