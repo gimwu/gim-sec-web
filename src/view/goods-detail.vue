@@ -11,7 +11,7 @@
         </div>
         <div class="info">
           <div class="name-box">
-            <div class="name">{{this.Info.Name}}</div>
+            <div class="name">{{ this.Info.Name }}</div>
           </div>
 
           <div class="price-box">
@@ -19,13 +19,13 @@
               <div class="con">
                 <div class="price">
                   ￥
-                  <span class="big">{{this.Info.Price}}</span>
+                  <span class="big">{{ this.Info.Price }}</span>
                   .00
                 </div>
               </div>
               <span class="tit">剩余库存</span>
               <div class="con">
-                {{this.Info.Stock}}
+                {{ this.Info.Stock }}
               </div>
             </div>
           </div>
@@ -41,14 +41,16 @@
           </div>
 
           <div class="btns group-btn">
-            <a href="javascript:void(0)" class="alone-group"><span
-                class="group-price">{{this.Info.Price}}</span> <span
-                class="group-text">单独购买</span></a> <a href="javascript:void(0)" class="add-cart add-cart-group"><span>加入购物车</span></a>
+            <el-button class="alone-group" @click="secKill(this.Info.Id)" color="#e1251b" :dark="isDark"
+                       :disabled="Date.parse(new Date())/1000 < this.Info.secKillStart || Date.parse(new Date())/1000>this.Info.secKillEnd">
+              立即下单
+            </el-button>
+            <el-button color="#626aef" :dark="isDark" plain>加入购物车</el-button>
           </div>
         </div>
       </div>
       <div class="detail-down detail-comment">
-          {{this.Info.Content}}
+        {{ this.Info.Content }}
       </div>
     </div>
   </div>
@@ -80,7 +82,45 @@ export default {
         this.Info = info.data.data;
       });
       console.log(this.Info)
-    }
+    },
+    secKill(id) {
+      api({
+            method: "POST",
+            url: "http://localhost:8070/api/v1/order",
+            data: {
+              goodsIds: [
+                id
+              ]
+            }
+          }
+      ).then(info => {
+        if (info.data.code == 200) {
+          console.log("成功购买");
+          this.$router.push("/submit-order");
+        }
+      }).catch(error => {
+        if (error.response.data.code == 401) {
+          this.$router.replace("/login")
+        }
+      });
+
+      this.$router.push({
+        path: "/submit-order",
+        query: {
+          CreatedAt: "2022-05-03T21:14:33.824+08:00",
+          UpdatedAt: "2022-05-03T21:14:33.824+08:00",
+          DeletedAt: null,
+          Id: this.Info.Id,
+          Name: this.Info.Name,
+          Price: this.Info.Price,
+          Stock: this.Info.Stock,
+          Photo: this.Info.Photo,
+          Content: this.Info.Content,
+          BelongUsernameId: this.Info.BelongUsernameId,
+          Sum:1
+        },
+      });
+    },
   },
   data() {
     return {
@@ -96,6 +136,7 @@ export default {
         Photo: "sec-1.jpeg",
         Content: "realy? u realy dont know what is this?",
         BelongUsernameId: "1",
+        Sum:1
       },
     }
   }

@@ -1,10 +1,9 @@
 <template>
-  <div class="side-nav side-nav-zh">
-    <div class="item">
-      <a href="javascript:void(0)" class="item-a active">我的订单</a>
-      <a href="javascript:void(0)" class="item-a active">个人中心</a>
-    </div>
-  </div>
+  <el-menu :default-active="defaultActive" style="min-height: 100%" theme="dark" router>
+    <template v-slot:title><i class="el-icon-document"></i>dataManager</template>
+    <el-menu-item index="order">普通订单</el-menu-item>
+    <el-menu-item index="sec-order">秒杀订单</el-menu-item>
+  </el-menu>
 </template>
 
 <script>

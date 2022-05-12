@@ -46,9 +46,26 @@ const router = createRouter(
                 component: () => import('@/view/submit-order'),
             },
             {
+                path: '/payment',
+                meta: ['订单支付'],
+                component: () => import('@/view/payment'),
+            },
+            {
                 path: '/my-order',
                 meta: ['我的订单'],
-                component: () => import('@/view/myOrder'),
+                component: () => import('@/view/myOrder/myOrder'),
+                children:[
+                    {
+                        path: '/order',
+                        meta: ['普通订单'],
+                        component: () => import('@/view/myOrder/order'),
+                    },
+                    {
+                        path:'/sec-order',
+                        meta:['秒杀订单'],
+                        component: () => import('@/view/myOrder/sec-order'),
+                    }
+                ]
             },
             {
                 path: '/user-center',
@@ -90,7 +107,7 @@ const router = createRouter(
                         component:()=>import('@/view/admin/adminList')
                     }
                 ],
-                component:() => import('@/view/admin')
+                component:() => import('@/view/admin/admin')
             },
             {
                 path:'/admin-login',

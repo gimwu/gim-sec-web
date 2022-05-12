@@ -33,7 +33,6 @@ export default {
         this.orderList.count=info.data.data.count
         this.orderList.list=info.data.data.list
       });
-      console.log(this.Info)
     }
   },
   data(){

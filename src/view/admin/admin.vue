@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import Aheader from '../components/admin-header';
+import Aheader from '../../components/admin-header';
 export default {
   name: "admin-view",
   components:{

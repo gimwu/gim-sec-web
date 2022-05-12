@@ -6,7 +6,7 @@ import {
     ElBreadcrumb,
     ElBreadcrumbItem, ElButton,
     ElCarousel,
-    ElCarouselItem, ElCol, ElDialog, ElForm, ElFormItem,
+    ElCarouselItem, ElCol, ElDescriptions, ElDescriptionsItem, ElDialog, ElForm, ElFormItem,
     ElIcon,
     ElImage,
     ElImageViewer, ElInput, ElMenu, ElMenuItem, ElRadio, ElRadioButton, ElRadioGroup,
@@ -45,5 +45,7 @@ app
     .use(ElRadioGroup)
     .use(ElRadio)
     .use(ElRadioButton)
+    .use(ElDescriptions)
+    .use(ElDescriptionsItem)
 
 app.mount('#app')
