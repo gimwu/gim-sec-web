@@ -11,7 +11,7 @@
         </div>
         <div class="info">
           <div class="name-box">
-            <div class="name">{{this.Info.Name}}</div>
+            <div class="name">{{this.Info.name}}</div>
           </div>
 
           <div class="price-box">
@@ -19,25 +19,25 @@
               <div class="con">
                 <div class="price">
                   ￥
-                  <span class="big">{{this.Info.Price}}</span>
+                  <span class="big">{{this.Info.price}}</span>
                   .00
                 </div>
               </div>
               <span class="tit">剩余库存</span>
               <div class="con">
-                {{this.Info.Stock}}
+                {{this.Info.stock}}
               </div>
             </div>
           </div>
 
           <div class="btns group-btn">
-            <el-button class="alone-group" @click="secKill(this.Info.Id)" color="#e1251b" :dark="isDark" :disabled="Date.parse(new Date())/1000 < this.Info.secKillStart || Date.parse(new Date())/1000>this.Info.secKillEnd">极速秒杀</el-button>
+            <el-button class="alone-group" @click="secKill(this.Info.id)" color="#e1251b" :dark="isDark" :disabled="Date.parse(new Date())/1000 < this.Info.secKillStart || Date.parse(new Date())/1000>this.Info.secKillEnd">极速秒杀</el-button>
             <el-button color="#626aef" :dark="isDark" plain>加入购物车</el-button>
           </div>
         </div>
       </div>
       <div class="detail-down detail-comment">
-        {{this.Info.Content}}
+        {{this.Info.content}}
       </div>
     </div>
   </div>
@@ -47,7 +47,21 @@
 import Top from '../components/Top';
 import headd from '../components/Head';
 import api from "@/utils/request";
+import {ElMessage} from "element-plus";
 
+const errorInsert = (msg) => {
+  ElMessage({
+    message: msg,
+    type: 'error'
+  })
+}
+
+const successInsert = () => {
+  ElMessage({
+    message: "恭喜你，秒杀成功，请尽快完成支付",
+    type: 'success',
+  })
+}
 export default {
   name: "goods-detail",
   components: {
@@ -56,7 +70,6 @@ export default {
   },
   mounted() {
     this.getInfo(this.$route.query.id)
-    console.log(Date.parse(new Date())/1000 < this.Info.secKillStart)
   },
   methods: {
     getInfo(id) {
@@ -69,6 +82,7 @@ export default {
       }).then(info => {
         this.Info = info.data.data;
       });
+      console.log("执行成功了")
       console.log(this.Info)
     },
     secKill(id) {
@@ -80,7 +94,15 @@ export default {
         }
       }).then(info =>{
         if (info.data.code == 200) {
-          console.log("成功购买");
+          successInsert();
+        } else {
+          errorInsert(info.data.data);
+        }
+      }).catch(error =>{
+        if (error.response.data.code == 401) {
+          this.$router.replace("/login")
+        }else{
+          errorInsert(error.response.data.data);
         }
       })
     },
@@ -88,18 +110,14 @@ export default {
   data() {
     return {
       Info: {
-        CreatedAt: "2022-05-03T21:14:33.824+08:00",
-        UpdatedAt: "2022-05-03T21:14:33.824+08:00",
-        DeletedAt: null,
-        Id: "154718797406666752",
-        Name: "Iphone 13 pro max",
-        Price: "8899",
-        Stock: 10,
-        Photo: "sec-1.jpeg",
-        Content: "realy? u realy dont know what is this?",
+        id: "154718797406666752",
+        name: "Iphone 13 pro max",
+        price: "8899",
+        stock: 10,
+        photo: "sec-1.jpeg",
+        content: "realy? u realy dont know what is this?",
         secKillStart: 0,
         secKillEnd: 0,
-        BelongUsernameId: "1",
       },
     }
   }

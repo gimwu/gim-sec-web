@@ -41,7 +41,7 @@
           </div>
 
           <div class="btns group-btn">
-            <el-button class="alone-group" @click="secKill(this.Info.Id)" color="#e1251b" :dark="isDark"
+            <el-button class="alone-group" @click="secKill()" color="#e1251b" :dark="isDark"
                        :disabled="Date.parse(new Date())/1000 < this.Info.secKillStart || Date.parse(new Date())/1000>this.Info.secKillEnd">
               立即下单
             </el-button>
@@ -83,20 +83,29 @@ export default {
       });
       console.log(this.Info)
     },
-    secKill(id) {
+    secKill() {
       api({
-            method: "POST",
-            url: "http://localhost:8070/api/v1/order",
-            data: {
-              goodsIds: [
-                id
-              ]
-            }
+            method: "GET",
+            url: "http://localhost:8070/api/v1/order/testJwt"
           }
       ).then(info => {
         if (info.data.code == 200) {
-          console.log("成功购买");
-          this.$router.push("/submit-order");
+          this.$router.push({
+            path: "/submit-order",
+            query: {
+              CreatedAt: "2022-05-03T21:14:33.824+08:00",
+              UpdatedAt: "2022-05-03T21:14:33.824+08:00",
+              DeletedAt: null,
+              Id: this.Info.Id,
+              Name: this.Info.Name,
+              Price: this.Info.Price,
+              Stock: this.Info.Stock,
+              Photo: this.Info.Photo,
+              Content: this.Info.Content,
+              BelongUsernameId: this.Info.BelongUsernameId,
+              Sum:1
+            },
+          });
         }
       }).catch(error => {
         if (error.response.data.code == 401) {
@@ -104,22 +113,7 @@ export default {
         }
       });
 
-      this.$router.push({
-        path: "/submit-order",
-        query: {
-          CreatedAt: "2022-05-03T21:14:33.824+08:00",
-          UpdatedAt: "2022-05-03T21:14:33.824+08:00",
-          DeletedAt: null,
-          Id: this.Info.Id,
-          Name: this.Info.Name,
-          Price: this.Info.Price,
-          Stock: this.Info.Stock,
-          Photo: this.Info.Photo,
-          Content: this.Info.Content,
-          BelongUsernameId: this.Info.BelongUsernameId,
-          Sum:1
-        },
-      });
+
     },
   },
   data() {
