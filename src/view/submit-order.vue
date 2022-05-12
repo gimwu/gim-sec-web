@@ -98,7 +98,6 @@ export default {
           }
       ).then(info => {
         if (info.data.code == 200) {
-          console.log("成功购买");
           this.$router.push({
             path: "/payment",
             query: {
